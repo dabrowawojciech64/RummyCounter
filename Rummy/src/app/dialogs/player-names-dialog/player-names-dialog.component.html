@@ -1,1 +1,15 @@
 <h1 mat-dialog-title>Insert player names</h1>
+<mat-dialog-content>
+  <form [formGroup]="playerNamesForm" (ngSubmit)="onSubmit()">
+    <!-- Make basicv form then stylize with material -->
+    <div class="namesForm" formArrayName="names">
+      <mat-form-field *ngFor="let name of names.controls; let i = index" appearance="fill">
+        <mat-label></mat-label>
+        <input matInput id="name-{{i}}" type="text" [formControlName]="i">
+      </mat-form-field>
+      <button mat-flat-button (click)="addName()" type="button">+Add Player</button>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="!playerNamesForm.valid">Submeet</button>
+  </form>
+
+</mat-dialog-content>

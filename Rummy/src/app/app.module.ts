@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './common/materials/materials.module';
 import { PlayerCardComponent } from './common/player-card/player-card.component';
-import { GameViewComponent } from './pages/game-view/game-view.component';
 import { PlayerNamesDialogComponent } from './dialogs/player-names-dialog/player-names-dialog.component';
+import { GameViewComponent } from './pages/game-view/game-view.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { PlayerNamesDialogComponent } from './dialogs/player-names-dialog/player
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialsModule
+    MaterialsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
