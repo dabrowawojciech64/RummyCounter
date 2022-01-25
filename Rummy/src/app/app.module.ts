@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MaterialsModule } from './common/materials/materials.module';
 import { PlayerCardComponent } from './common/player-card/player-card.component';
-import { PlayerNamesDialogComponent } from './dialogs/player-names-dialog/player-names-dialog.component';
+import { PlayerNamesDialog } from './dialogs/player-names-dialog/player-names-dialog.component';
 import { GameViewComponent } from './pages/game-view/game-view.component';
 
 
@@ -15,7 +15,7 @@ import { GameViewComponent } from './pages/game-view/game-view.component';
     AppComponent,
     PlayerCardComponent,
     GameViewComponent,
-    PlayerNamesDialogComponent
+    PlayerNamesDialog
   ],
   imports: [
     BrowserModule,

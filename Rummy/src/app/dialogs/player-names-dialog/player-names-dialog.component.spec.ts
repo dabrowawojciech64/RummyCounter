@@ -1,25 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlayerNamesDialogComponent } from './player-names-dialog.component';
+import { PlayerNamesDialog } from './player-names-dialog.component';
 
 describe('PlayerNamesDialogComponent', () => {
-  let component: PlayerNamesDialogComponent;
-  let fixture: ComponentFixture<PlayerNamesDialogComponent>;
+    let component: PlayerNamesDialog;
+    let fixture: ComponentFixture<PlayerNamesDialog>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PlayerNamesDialogComponent ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ PlayerNamesDialog ]
+        })
+        .compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PlayerNamesDialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PlayerNamesDialog);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

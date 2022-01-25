@@ -1,9 +1,18 @@
 .namesForm{
-   display:flex;
-   flex-direction: column;
-   max-width: 20rem;
+    display:flex;
+    flex-direction: column;
+    max-width: 20rem;
+}
 
+.submitField{
+    display: flex;
+    max-width: 20rem;
+    justify-content: space-between;
+    margin-top: 1.125rem;
 
+    &__action{
+        width: 40%;
+    }
 }
 
 
