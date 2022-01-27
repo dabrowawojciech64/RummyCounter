@@ -1,0 +1,7 @@
+<mat-card [ngClass]="{'dealers-card' : player.dealer}" class="card-body">
+    <mat-card-title>{{player.name}}</mat-card-title>
+  <mat-card-content><h2>Score: {{player.score}}</h2></mat-card-content>
+  <mat-card-actions><button mat-raised-button color="accent" (click)="launchDialog(index)">Winner</button></mat-card-actions>
+</mat-card>
+
+

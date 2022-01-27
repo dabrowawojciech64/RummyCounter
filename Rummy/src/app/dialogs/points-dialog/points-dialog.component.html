@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>How many cards are left in players' hands</h1>
+<form [formGroup]="playerPointsForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+        <div class="pointsForm" formArrayName="points">
+            <mat-form-field *ngFor="let point of points.controls; let i = index"  appearance="fill">
+                <mat-label>{{names[i]}}</mat-label>
+                <input matInput
+                    id="point-{{i}}"
+                    type="number"
+                    step="1"
+                    min="1"
+                    max="13"
+                    [formControlName]="i"
+                    onkeydown="if(event.key==='.'){event.preventDefault();}"
+                    oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');"
+                    >
+                <mat-error>
+                    1-13
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="submitField__action" mat-raised-button  type="submit" [disabled]="!playerPointsForm.valid">Calculate points</button>
+        <button class="submitField__action" mat-raised-button mat-dialog-close="" type="button">Cancel</button>
+    </mat-dialog-actions>
+</form>

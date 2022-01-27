@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Insert player names</h1>
+<form [formGroup]="playerNamesForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+        <div class="namesForm" formArrayName="names">
+            <mat-form-field *ngFor="let name of names.controls; let i = index" appearance="fill">
+                <mat-label></mat-label>
+                <input matInput id="name-{{i}}" type="text" [formControlName]="i">
+                <button *ngIf="names.controls.length >2" matSuffix mat-icon-button (click)="removeName(i)"><mat-icon>close</mat-icon></button>
+                <mat-error>
+                    Please enter the name of a player
+                </mat-error>
+            </mat-form-field>
+            <button mat-flat-button (click)="addName()" type="button">+Add Player</button>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button class="submitField__action" mat-raised-button  type="submit" [disabled]="!playerNamesForm.valid">New Game</button>
+        <button class="submitField__action" mat-raised-button [mat-dialog-close]="{submitted: false}" type="button" *ngIf="players" >Cancel</button>
+    </mat-dialog-actions>
+</form>
