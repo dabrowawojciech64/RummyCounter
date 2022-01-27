@@ -31,9 +31,9 @@ export class PlayerNamesDialog implements OnInit {
     onSubmit() {
         let names: string[] = this.playerNamesForm.value.names;
         let newPlayers: PlayerData[] = [];
-        for (const name of names) {
+        for (const [index,name] of names.entries()) {
 
-            newPlayers.push({ name: name, score: 0 });
+            newPlayers.push({ name: name, score: 0,dealer:index==0?true:false });
         }
         this.dialogRef.close({ players: newPlayers, submitted: true })
     }

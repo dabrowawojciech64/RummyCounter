@@ -1,16 +1,22 @@
 <div class="player-cards">
-    <app-player-card *ngFor="let player of players" [playerName]="player.name" [playerScore]="player.score"></app-player-card>
+    <app-player-card
+        *ngFor="let player of players; let i = index"
+        [player]="player" [index]="i"
+        [launchDialog]="this.launchPointsDialog.bind(this)"
+     >
+    </app-player-card>
 </div>
 <button
     class="action"
     mat-raised-button color="primary"
     (click)="resetGame()"
 >
-Reset Game
+    Reset Game
 </button>
 <button
     class="action"
     mat-raised-button color="primary"
-    (click)="launchPlayerNamesDialog()">
+    (click)="launchPlayerNamesDialog()"
+>
     New Game
 </button>

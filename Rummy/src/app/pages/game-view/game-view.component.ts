@@ -1,3 +1,4 @@
+import { PointsDialog } from './../../dialogs/points-dialog/points-dialog.component';
 import { PlayerData } from './../../common/player-data.PlayerData';
 import { PlayerNamesDialog } from './../../dialogs/player-names-dialog/player-names-dialog.component';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,8 @@ export class GameViewComponent implements OnInit {
             type: 'object',
             properties: {
                 name: { type: 'string' },
-                score: { type: 'number' }
+                score: { type: 'number' },
+                dealer: { type:'boolean'}
             }
         },
     };
@@ -44,6 +46,33 @@ export class GameViewComponent implements OnInit {
                 this.saveData()
             }
         });
+    }
+
+    launchPointsDialog(index: any):void {
+        let dialogRef = this.dialog.open(PointsDialog, {
+            height: '800px',
+            width: '600px',
+            data: {
+                index: index,
+                players: this.players
+            },
+        });
+        dialogRef.afterClosed().subscribe((result:number[]) => {
+            if (result) {
+                for (const key of result.keys()) {
+                    this.players![key].score-=result[key]
+                }
+                this.nextDealer();
+                this.saveData()
+            }
+        });
+    }
+
+    nextDealer(): void {
+        const index = this.players!.findIndex((player) => player.dealer === true);
+        const nextIndex = index + 1 !== this.players!.length ? index + 1 : 0;
+        this.players![index].dealer = false;
+        this.players![nextIndex].dealer = true;
     }
 
     resetGame(): void {

@@ -8,6 +8,7 @@ import { MaterialsModule } from './common/materials/materials.module';
 import { PlayerCardComponent } from './common/player-card/player-card.component';
 import { PlayerNamesDialog } from './dialogs/player-names-dialog/player-names-dialog.component';
 import { GameViewComponent } from './pages/game-view/game-view.component';
+import { PointsDialog } from './dialogs/points-dialog/points-dialog.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { GameViewComponent } from './pages/game-view/game-view.component';
     AppComponent,
     PlayerCardComponent,
     GameViewComponent,
-    PlayerNamesDialog
+    PlayerNamesDialog,
+    PointsDialog
   ],
   imports: [
     BrowserModule,

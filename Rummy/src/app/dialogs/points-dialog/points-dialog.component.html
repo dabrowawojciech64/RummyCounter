@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Insert player names</h1>
+<form [formGroup]="playerPointsForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+        <div class="pointsForm" formArrayName="points">
+            <mat-form-field *ngFor="let point of points.controls; let i = index"  appearance="fill">
+                <mat-label>{{names[i]}}</mat-label>
+                <input matInput id="point-{{i}}" type="number" min="1" max="13" [formControlName]="i">
+                <mat-error>
+                    Please enter the name of a player
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="submitField__action" mat-raised-button  type="submit" [disabled]="!playerPointsForm.valid">Calculate points</button>
+        <button class="submitField__action" mat-raised-button mat-dialog-close="" type="button">Cancel</button>
+    </mat-dialog-actions>
+</form>
